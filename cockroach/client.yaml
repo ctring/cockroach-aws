@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cockroachdb-client
+  labels:
+    app: cockroachdb-client
+spec:
+  containers:
+  - name: cockroachdb-client
+    image: cockroachdb/cockroach:v21.1.7
+    imagePullPolicy: IfNotPresent
+    # Keep a pod open indefinitely so kubectl exec can be used to get a shell to it
+    # and run cockroach client commands, such as cockroach sql, cockroach node status, etc.
+    command:
+    - sleep
+    - "2147483648" # 2^31
+  # This pod isn't doing anything important, so don't bother waiting to terminate it.
+  terminationGracePeriodSeconds: 0

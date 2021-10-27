@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: license
+  labels:
+    app: cockroachdb
+spec:
+  template:
+    spec:
+      containers:
+      - name: license
+        image: ctring/cockroach
+        imagePullPolicy: IfNotPresent
+        command:
+          - "/cockroach/cockroach"
+          - "sql"
+          - "--insecure"
+          - "--host=cockroachdb.region-0"
+          - "--execute=SET CLUSTER SETTING cluster.organization = 'UMD'"
+          - "--execute=SET CLUSTER SETTING enterprise.license = 'crl-0-ELr/sIwGGAIiA1VNRA'"
+      restartPolicy: "Never"

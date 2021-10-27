@@ -1,0 +1,21 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: cockroachdb
+  region: us-east-2
+
+vpc:
+  subnets:
+    public:
+      us-east-2a: { id: subnet-0cde3976b2a0d524c }
+      us-east-2b: { id: subnet-0f0a7b144a2a5d0f7 }
+      us-east-2c: { id: subnet-08c099609234207be }
+
+managedNodeGroups:
+  - name: workers
+    instanceType: m5.xlarge
+    spot: true
+    desiredCapacity: 3
+    ssh:
+      allow: true

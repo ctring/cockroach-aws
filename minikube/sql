@@ -1,0 +1,17 @@
+SET CLUSTER SETTING cluster.organization = 'UMD';
+SET CLUSTER SETTING enterprise.license = 'crl-0-ELr/sIwGGAIiA1VNRA';
+
+ALTER DATABASE movr SET PRIMARY REGION = "region-0";
+ALTER DATABASE movr ADD REGION = "region-1";
+ALTER DATABASE movr ADD REGION = "region-2";
+
+SHOW REGIONS FROM CLUSTER;
+SHOW REGIONS FROM DATABASE movr;
+SHOW ZONE CONFIGURATION FROM DATABASE movr;
+
+SET override_multi_region_zone_config = true;
+
+ALTER DATABASE movr CONFIGURE ZONE USING constraints='[]';
+ALTER DATABASE movr CONFIGURE ZONE USING num_voters=1;
+ALTER DATABASE movr CONFIGURE ZONE USING num_replicas=1;
+

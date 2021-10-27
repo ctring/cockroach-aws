@@ -1,0 +1,22 @@
+# eksctl create cluster -f eksctl/us-east-1.yaml
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: cockroachdb
+  region: us-east-1
+
+vpc:
+  subnets:
+    public:
+      us-east-1a: { id: subnet-01ffdf1e8d2d11bce }
+      us-east-1b: { id: subnet-0f2ae7a9189cd2786 }
+      us-east-1c: { id: subnet-0346cab72850ef316 }
+
+managedNodeGroups:
+  - name: workers
+    instanceType: m5.xlarge
+    spot: true
+    desiredCapacity: 3
+    ssh:
+      allow: true
