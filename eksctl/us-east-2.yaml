@@ -11,7 +11,6 @@ vpc:
       us-east-2a: { id: subnet-0cde3976b2a0d524c }
       us-east-2b: { id: subnet-0f0a7b144a2a5d0f7 }
       us-east-2c: { id: subnet-08c099609234207be }
-  sharedNodeSecurityGroup: sg-071f6372deb7dcbd6
 
 managedNodeGroups:
   - name: workers
@@ -20,3 +19,6 @@ managedNodeGroups:
     desiredCapacity: 3
     ssh:
       allow: true
+    securityGroups:
+      attachIDs:
+        - sg-071f6372deb7dcbd6

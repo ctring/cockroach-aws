@@ -25,7 +25,7 @@ data:
        errors
        ready
        cache 10
-       forward . 18.216.134.197 18.188.171.186 18.116.189.84 {
+       forward . 3.132.26.221 3.23.246.188 {
             force_tcp
        }
    }

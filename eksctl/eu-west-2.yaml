@@ -12,7 +12,6 @@ vpc:
       eu-west-2a: { id: subnet-01d4009a020da46df }
       eu-west-2b: { id: subnet-0e2ad7f39541c75df }
       eu-west-2c: { id: subnet-0c7df5b4993c904ef }
-  sharedNodeSecurityGroup: sg-0b4b4252331d95340
 
 managedNodeGroups:
   - name: workers
@@ -21,3 +20,6 @@ managedNodeGroups:
     desiredCapacity: 3
     ssh:
       allow: true
+    securityGroups:
+      attachIDs:
+        - sg-0b4b4252331d95340

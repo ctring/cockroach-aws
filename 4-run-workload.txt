@@ -1,0 +1,1 @@
+REGION=2 THETA=0.5 LOCAL_PCT=100 DURATION=60 ./4-run-workload.sh
