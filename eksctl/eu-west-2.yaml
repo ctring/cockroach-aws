@@ -1,0 +1,23 @@
+# eksctl create cluster -f eksctl/eu-west-2.yaml
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: cockroachdb
+  region: eu-west-2
+
+vpc:
+  subnets:
+    public:
+      eu-west-2a: { id: subnet-01d4009a020da46df }
+      eu-west-2b: { id: subnet-0e2ad7f39541c75df }
+      eu-west-2c: { id: subnet-0c7df5b4993c904ef }
+  sharedNodeSecurityGroup: sg-0b4b4252331d95340
+
+managedNodeGroups:
+  - name: workers
+    instanceType: m5.xlarge
+    spot: true
+    desiredCapacity: 3
+    ssh:
+      allow: true

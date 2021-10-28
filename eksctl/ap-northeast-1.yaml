@@ -1,0 +1,23 @@
+# eksctl create cluster -f eksctl/ap-northeast-1.yaml
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: cockroachdb
+  region: ap-northeast-1
+
+vpc:
+  subnets:
+    public:
+      ap-northeast-1a: { id: subnet-0e16430fc4f55394b }
+      ap-northeast-1c: { id: subnet-01f21ff0937063580 }
+      ap-northeast-1d: { id: subnet-09f5757b70b66c7a5 }
+  sharedNodeSecurityGroup: sg-0f66a325f7ea5fd30
+
+managedNodeGroups:
+  - name: workers
+    instanceType: m5.xlarge
+    spot: true
+    desiredCapacity: 3
+    ssh:
+      allow: true
