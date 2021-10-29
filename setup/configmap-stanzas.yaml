@@ -4,7 +4,7 @@ us-east-1: |
     errors
     ready
     cache 10
-    forward . 3.229.151.158 3.223.233.243 3.225.238.93 {
+    forward . 44.194.150.211 3.226.208.198 {
         force_tcp
     }
   }
@@ -14,7 +14,7 @@ us-east-2: |
     errors
     ready
     cache 10
-    forward . 18.218.15.54 3.132.101.119 3.143.97.31 {
+    forward . 18.190.34.5 3.22.76.39 18.219.202.208 {
         force_tcp
     }
   }
@@ -24,7 +24,7 @@ eu-west-1: |
     errors
     ready
     cache 10
-    forward . 3.132.26.221 3.23.246.188 {
+    forward . 54.247.34.239 54.170.18.159 176.34.198.249 {
         force_tcp
     }
   }
@@ -34,27 +34,27 @@ eu-west-2: |
     errors
     ready
     cache 10
-    forward . 3.132.26.221 3.23.246.188 {
+    forward . 35.179.61.21 18.168.250.73 18.134.78.4 {
         force_tcp
     }
   }
-ap-norhteast-1: |
+ap-northeast-1: |
   ap-northeast-1.svc.cluster.local:53 {
     log
     errors
     ready
     cache 10
-    forward . 3.132.26.221 3.23.246.188 {
+    forward . 18.180.201.161 3.114.21.43 52.199.1.40 {
         force_tcp
     }
   }
-ap-northeast-1: |
+ap-northeast-2: |
   ap-northeast-2.svc.cluster.local:53 {
     log
     errors
     ready
     cache 10
-    forward . 3.132.26.221 3.23.246.188 {
+    forward . 3.37.149.134 52.79.205.134 3.38.50.101 {
         force_tcp
     }
   }
@@ -64,7 +64,7 @@ ap-southeast-1: |
     errors
     ready
     cache 10
-    forward . 3.132.26.221 3.23.246.188 {
+    forward . 13.250.164.105 13.213.235.123 18.139.59.20 {
         force_tcp
     }
   }
@@ -74,7 +74,7 @@ ap-southeast-2: |
     errors
     ready
     cache 10
-    forward . 3.132.26.221 3.23.246.188 {
+    forward . 13.211.104.174 13.236.234.164 13.239.154.103 {
         force_tcp
     }
   }

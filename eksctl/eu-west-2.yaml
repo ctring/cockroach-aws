@@ -22,4 +22,4 @@ managedNodeGroups:
       allow: true
     securityGroups:
       attachIDs:
-        - sg-0b4b4252331d95340
+        - sg-077c72864270f6ad3
