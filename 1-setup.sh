@@ -1,6 +1,8 @@
 #!/bin/bash
 # https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-kubernetes-multi-cluster.html?filters=eks
 
+source "0-regions.sh"
+
 namespace-and-dns-lb() {
   region=$1
   context=ctring@cockroachdb.$region.eksctl.io
@@ -8,8 +10,9 @@ namespace-and-dns-lb() {
   kubectl apply -f setup/dns-lb-eks.yaml --context $context
 }
 
-namespace-and-dns-lb us-east-1
-# namespace-and-dns-lb us-east-2
+for region in ${REGIONS[@]}; do
+  namespace-and-dns-lb $region
+done
 
 # https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-kubernetes-multi-cluster.html?filters=eks#configure-coredns
 read -p "Update the ConfigMap then press ENTER to continue"
@@ -19,5 +22,6 @@ configmap() {
   kubectl apply -f setup/configmap-$region.yaml --context ctring@cockroachdb.$region.eksctl.io
 }
 
-configmap us-east-1
-configmap us-east-2
+for region in ${REGIONS[@]}; do
+  configmap $region
+done

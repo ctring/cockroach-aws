@@ -1,18 +1,32 @@
 #!/bin/bash
-CONTEXT_US_EAST_1=ctring@cockroachdb.us-east-1.eksctl.io
-CONTEXT_US_EAST_2=ctring@cockroachdb.us-east-2.eksctl.io
+source "0-regions.sh"
 
-region_idx=${REGION_IDX:=0}
 theta=${THETA:=0.1}
 local_pct=${LOCAL_PCT:=100}
 duration=${DURATION:=10}
+regions=""
+for i in ${!REGIONS[@]}; do
+  if (( $i > 0 )); then 
+    regions+=","
+  fi
+  regions+=${REGIONS[$i]}
+done
 
 run() {
-  region=$1
+  region_idx=$1
+  region=$2
   cat cockroach/workload-run.yaml |\
-    REGION_IDX=$region_idx THETA=$theta LOCAL_PCT=$local_pct DURATION=$duration NAMESPACE=$region SUFFIX="-$SUFFIX" envsubst |\
+    REGION_IDX=$region_idx         \
+    REGIONS=$regions               \
+    THETA=$theta                   \
+    LOCAL_PCT=$local_pct           \
+    DURATION=$duration             \
+    NAMESPACE=$region              \
+    SUFFIX="-$SUFFIX"              \
+    envsubst                      |\
     kubectl create --context ctring@cockroachdb.$region.eksctl.io -f -
 }
 
-run us-east-1
-run us-east-2
+for i in ${!REGIONS[@]}; do
+  run $i ${REGIONS[$i]}
+done

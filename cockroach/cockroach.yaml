@@ -73,7 +73,7 @@ kind: StatefulSet
 metadata:
   name: cockroachdb
   # TODO: Use this field to specify a namespace other than "default" in which to deploy CockroachDB (e.g., us-east-1).
-  namespace: us-east-2
+  namespace: $REGION
 spec:
   serviceName: "cockroachdb"
   replicas: 3
@@ -122,11 +122,11 @@ spec:
         # Note that requests and limits should have identical values.
         resources:
           requests:
-            cpu: "2"
-            memory: "8Gi"
+            cpu: $CPU
+            memory: $MEMORY
           limits:
-            cpu: "2"
-            memory: "8Gi" 
+            cpu: $CPU
+            memory: $MEMORY 
         ports:
         - containerPort: 26257
           name: grpc
@@ -177,12 +177,12 @@ spec:
             --logtostderr
             --advertise-host $(hostname -f)
             --http-addr 0.0.0.0
-            --join cockroachdb-0.cockroachdb.us-east-1,cockroachdb-1.cockroachdb.us-east-1,cockroachdb-2.cockroachdb.us-east-1,cockroachdb-0.cockroachdb.us-east-2,cockroachdb-1.cockroachdb.us-east-2,cockroachdb-2.cockroachdb.us-east-2
-            --locality=region=us-east-2,az=$(cat /etc/cockroach-env/zone),dns=$(hostname -f)
-            --cache $(expr $MEMORY_LIMIT_MIB / 4)MiB
-            --max-sql-memory $(expr $MEMORY_LIMIT_MIB / 4)MiB
+            --join $JOIN
+            --locality=region=$REGION,az=$(cat /etc/cockroach-env/zone),dns=$(hostname -f)
+            --cache $CACHE
+            --max-sql-memory $MAXSQLMEMORY
             --insecure
-            --store type=mem,size=700MiB
+            --store type=mem,size=$STOREMEM
       # No pre-stop hook is required, a SIGTERM plus some time is all that's
       # needed for graceful shutdown of a node.
       terminationGracePeriodSeconds: 60

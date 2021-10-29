@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "0-regions.sh"
+
 SUFFIX=test
 
 get-results() {
@@ -13,5 +15,6 @@ get-results() {
   echo
 }
 
-get-results us-east-1
-get-results us-east-2
+for region in ${REGIONS[@]}; do
+  get-results $region
+done
