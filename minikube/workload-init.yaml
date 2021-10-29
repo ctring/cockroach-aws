@@ -17,7 +17,7 @@ spec:
           - "init"
           - "kv"
           - "--drop"
-          - "--insert-count=1000"
+          - "--insert-count=1000000"
           - "--min-block-bytes=100"
           - "--max-block-bytes=100"
           - "--regions=region-0,region-1,region-2"

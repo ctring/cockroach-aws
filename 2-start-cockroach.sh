@@ -14,7 +14,7 @@ done
 
 start-cockroach() {
   region=$1
-  cpu="16"
+  cpu="15"
   memory="120Gi"
   cache="12Gi"
   maxsqlmemory="12Gi"
@@ -35,3 +35,7 @@ start-cockroach() {
 for region in ${REGIONS[@]}; do
   start-cockroach $region
 done
+
+context=ctring@cockroachdb.$REGIONS.eksctl.io
+kubectl delete -f cockroach/init.yaml --context $context --ignore-not-found
+kubectl create -f cockroach/init.yaml --context $context

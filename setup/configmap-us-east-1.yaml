@@ -17,14 +17,14 @@ data:
         loadbalance
     }
     us-east-2.svc.cluster.local:53 {
-       log
-       errors
-       ready
-       cache 10
-       forward . 18.215.120.107 3.210.105.133 3.235.209.152 {
-           force_tcp
-       }
-     }
+      log
+      errors
+      ready
+      cache 10
+      forward . 18.218.15.54 3.132.101.119 3.143.97.31 {
+          force_tcp
+      }
+    }
     eu-west-1.svc.cluster.local:53 {
       log
       errors

@@ -22,6 +22,8 @@ configmap() {
   kubectl apply -f setup/configmap-$region.yaml --context ctring@cockroachdb.$region.eksctl.io
 }
 
+cd setup && python3 genconfigmap.py && cd ..
+
 for region in ${REGIONS[@]}; do
   configmap $region
 done

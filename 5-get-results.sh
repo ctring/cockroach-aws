@@ -2,7 +2,7 @@
 
 source "0-regions.sh"
 
-SUFFIX=test
+SUFFIX=${SUFFIX:=1}
 
 get-results() {
   region=$1

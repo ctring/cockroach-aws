@@ -1,9 +1,9 @@
-SUFFIX=1 THETA=0.1 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
-SUFFIX=2 THETA=0.2 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
-SUFFIX=3 THETA=0.3 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
-SUFFIX=4 THETA=0.4 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
-SUFFIX=5 THETA=0.5 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
-SUFFIX=6 THETA=0.6 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
-SUFFIX=7 THETA=0.7 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
-SUFFIX=8 THETA=0.8 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
-SUFFIX=9 THETA=0.9 LOCAL_PCT=$local_pct DURATION=$duration ./4-run-workload.sh
+SUFFIX=1 THETA=0.1 DURATION=60 ./4-run-workload.sh
+SUFFIX=2 THETA=0.2 DURATION=60 ./4-run-workload.sh
+SUFFIX=3 THETA=0.3 DURATION=60 ./4-run-workload.sh
+SUFFIX=4 THETA=0.4 DURATION=60 ./4-run-workload.sh
+SUFFIX=5 THETA=0.5 DURATION=60 ./4-run-workload.sh
+SUFFIX=6 THETA=0.6 DURATION=60 ./4-run-workload.sh
+SUFFIX=7 THETA=0.7 DURATION=60 ./4-run-workload.sh
+SUFFIX=8 THETA=0.8 DURATION=60 ./4-run-workload.sh
+SUFFIX=9 THETA=0.9 DURATION=60 ./4-run-workload.sh
