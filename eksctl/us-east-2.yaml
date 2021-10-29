@@ -14,7 +14,7 @@ vpc:
 
 managedNodeGroups:
   - name: workers
-    instanceType: m5.xlarge
+    instanceType: r5.4xlarge
     spot: true
     desiredCapacity: 3
     ssh:

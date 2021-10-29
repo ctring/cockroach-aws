@@ -1,7 +1,4 @@
 #!/bin/bash
-CONTEXT_US_EAST_1=ctring@cockroachdb.us-east-1.eksctl.io
-CONTEXT_US_EAST_2=ctring@cockroachdb.us-east-2.eksctl.io
-
 region_idx=${REGION_IDX:=0}
 theta=${THETA:=0.1}
 local_pct=${LOCAL_PCT:=100}

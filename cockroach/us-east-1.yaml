@@ -122,11 +122,11 @@ spec:
         # Note that requests and limits should have identical values.
         resources:
           requests:
-            cpu: "2"
-            memory: "8Gi"
+            cpu: "16"
+            memory: "116Gi"
           limits:
-            cpu: "2"
-            memory: "8Gi" 
+            cpu: "16"
+            memory: "116Gi" 
         ports:
         - containerPort: 26257
           name: grpc
@@ -179,10 +179,10 @@ spec:
             --http-addr 0.0.0.0
             --join cockroachdb-0.cockroachdb.us-east-1,cockroachdb-1.cockroachdb.us-east-1,cockroachdb-2.cockroachdb.us-east-1,cockroachdb-0.cockroachdb.us-east-2,cockroachdb-1.cockroachdb.us-east-2,cockroachdb-2.cockroachdb.us-east-2
             --locality=region=us-east-1,az=$(cat /etc/cockroach-env/zone),dns=$(hostname -f)
-            --cache $(expr $MEMORY_LIMIT_MIB / 4)MiB
-            --max-sql-memory $(expr $MEMORY_LIMIT_MIB / 4)MiB
+            --cache 7GiB
+            --max-sql-memory 7GiB
             --insecure
-            --store type=mem,size=700MiB
+            --store type=mem,size=100GiB
       # No pre-stop hook is required, a SIGTERM plus some time is all that's
       # needed for graceful shutdown of a node.
       terminationGracePeriodSeconds: 60
