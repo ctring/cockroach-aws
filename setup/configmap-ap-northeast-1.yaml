@@ -25,6 +25,15 @@ data:
           force_tcp
       }
     }
+    us-east-2.svc.cluster.local:53 {
+       log
+       errors
+       ready
+       cache 10
+       forward . 18.215.120.107 3.210.105.133 3.235.209.152 {
+           force_tcp
+       }
+     }
     eu-west-1.svc.cluster.local:53 {
       log
       errors
@@ -44,15 +53,6 @@ data:
       }
     }
     ap-northeast-1.svc.cluster.local:53 {
-      log
-      errors
-      ready
-      cache 10
-      forward . 3.132.26.221 3.23.246.188 {
-          force_tcp
-      }
-    }
-    ap-northeast-2.svc.cluster.local:53 {
       log
       errors
       ready
