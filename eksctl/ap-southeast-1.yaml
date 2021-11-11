@@ -14,10 +14,19 @@ vpc:
       ap-southeast-1c: { id: subnet-0e2d70fc6ec12c67a }
 
 managedNodeGroups:
-  - name: workers
-    instanceType: r5.4xlarge
+  - name: servers
+    instanceType: c5.4xlarge
     spot: true
     desiredCapacity: 3
+    ssh:
+      allow: true
+    securityGroups:
+      attachIDs:
+        - sg-06b2eeb8fdf0f4953
+  - name: clients
+    instanceType: c5.xlarge
+    spot: true
+    desiredCapacity: 1
     ssh:
       allow: true
     securityGroups:

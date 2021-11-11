@@ -15,10 +15,10 @@ done
 start-cockroach() {
   region=$1
   cpu="15"
-  memory="120Gi"
-  cache="12Gi"
-  maxsqlmemory="12Gi"
-  storemem="90Gi"
+  memory="27Gi"
+  cache="500Mi"
+  maxsqlmemory="500Mi"
+  storemem="26Gi"
 
   cat cockroach/cockroach.yaml |\
     REGION=$region              \

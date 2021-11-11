@@ -1,31 +1,29 @@
 # Example: cat workload-run.yaml | REGION=0 THETA=0.1 LOCAL_PCT=100 DURATION=5 envsubst | kubectl apply -f -
-apiVersion: batch/v1
-kind: Job
+apiVersion: v1
+kind: Pod
 metadata:
   name: workload-run
   labels:
     app: cockroachdb
 spec:
-  template:
-    spec:
-      containers:
-      - name: workload-run
-        image: ctring/cockroach
-        imagePullPolicy: IfNotPresent
-        command:
-          - "/cockroach/cockroach"
-          - "workload"
-          - "run"
-          - "kv"
-          - "--batch=10"
-          - "--insert-count=1000"
-          - "--min-block-bytes=100"
-          - "--max-block-bytes=100"
-          - "--regions=region-0,region-1,region-2"
-          - "--read-percent=0"
-          - "--region-idx=$REGION"
-          - "--theta=$THETA"
-          - "--local-region-percent=$LOCAL_PCT"
-          - "--duration=${DURATION}s"
-          - "postgresql://root@cockroachdb.region-0:26257?sslmode=disable"
-      restartPolicy: "Never"
+  containers:
+  - name: workload-run
+    image: ctring/cockroach
+    imagePullPolicy: IfNotPresent
+    command:
+      - "/cockroach/cockroach"
+      - "workload"
+      - "run"
+      - "kv"
+      - "--batch=10"
+      - "--insert-count=1000"
+      - "--min-block-bytes=100"
+      - "--max-block-bytes=100"
+      - "--regions=region-0,region-1,region-2"
+      - "--read-percent=0"
+      - "--region-idx=$REGION"
+      - "--theta=$THETA"
+      - "--local-region-percent=$LOCAL_PCT"
+      - "--duration=${DURATION}s"
+      - "postgresql://root@cockroachdb.region-0:26257?sslmode=disable"
+  restartPolicy: "Never"

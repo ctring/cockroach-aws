@@ -4,7 +4,7 @@ us-east-1: |
     errors
     ready
     cache 10
-    forward . 44.194.150.211 3.226.208.198 {
+    forward . 44.196.39.222 3.218.121.43 3.225.7.123 {
         force_tcp
     }
   }
@@ -14,7 +14,7 @@ us-east-2: |
     errors
     ready
     cache 10
-    forward . 18.190.34.5 3.22.76.39 18.219.202.208 {
+    forward . 18.116.57.216 18.188.250.232 3.16.7.179 {
         force_tcp
     }
   }
@@ -24,7 +24,7 @@ eu-west-1: |
     errors
     ready
     cache 10
-    forward . 54.247.34.239 54.170.18.159 176.34.198.249 {
+    forward . 34.248.43.228 54.228.5.240 63.33.123.155 {
         force_tcp
     }
   }
@@ -34,7 +34,7 @@ eu-west-2: |
     errors
     ready
     cache 10
-    forward . 35.179.61.21 18.168.250.73 18.134.78.4 {
+    forward . 18.134.116.150 18.135.35.85 18.170.129.122 {
         force_tcp
     }
   }
@@ -44,7 +44,7 @@ ap-northeast-1: |
     errors
     ready
     cache 10
-    forward . 18.180.201.161 3.114.21.43 52.199.1.40 {
+    forward . 3.115.137.78 52.194.8.237 52.196.76.106 {
         force_tcp
     }
   }
@@ -54,7 +54,7 @@ ap-northeast-2: |
     errors
     ready
     cache 10
-    forward . 3.37.149.134 52.79.205.134 3.38.50.101 {
+    forward . 15.165.187.14 54.180.215.202 3.37.64.147 {
         force_tcp
     }
   }
@@ -64,7 +64,7 @@ ap-southeast-1: |
     errors
     ready
     cache 10
-    forward . 13.250.164.105 13.213.235.123 18.139.59.20 {
+    forward . 13.228.123.162 13.228.241.136 13.213.189.198 {
         force_tcp
     }
   }
@@ -74,7 +74,7 @@ ap-southeast-2: |
     errors
     ready
     cache 10
-    forward . 13.211.104.174 13.236.234.164 13.239.154.103 {
+    forward . 13.238.5.7 13.211.243.121 3.104.231.200 {
         force_tcp
     }
   }

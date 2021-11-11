@@ -1,26 +1,22 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: v1
+kind: Pod
 metadata:
   name: workload-init
   labels:
     app: cockroachdb
 spec:
-  template:
-    spec:
-      containers:
-      - name: workload-init
-        image: ctring/cockroach
-        imagePullPolicy: IfNotPresent
-        command:
-          - "/cockroach/cockroach"
-          - "workload"
-          - "init"
-          - "kv"
-          - "--drop"
-          - "--insert-count=1000000"
-          - "--min-block-bytes=100"
-          - "--max-block-bytes=100"
-          - "--regions=region-0,region-1,region-2"
-          - "--single-replica"
-          - "postgresql://root@cockroachdb.region-0:26257?sslmode=disable"
-      restartPolicy: "Never"
+  containers:
+  - name: workload-init
+    image: ctring/cockroach:preload
+    imagePullPolicy: IfNotPresent
+    command:
+      - "/cockroach/cockroach"
+      - "workload"
+      - "init"
+      - "kv"
+      - "--drop"
+      - "--insert-count=100000"
+      - "--regions=region-0,region-1,region-2"
+      - "--single-replica"
+      - "postgresql://root@cockroachdb.region-0:26257?sslmode=disable"
+  restartPolicy: "Never"

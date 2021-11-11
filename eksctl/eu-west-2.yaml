@@ -14,10 +14,19 @@ vpc:
       eu-west-2c: { id: subnet-0c7df5b4993c904ef }
 
 managedNodeGroups:
-  - name: workers
-    instanceType: r5.4xlarge
+  - name: servers
+    instanceType: c5.4xlarge
     spot: true
     desiredCapacity: 3
+    ssh:
+      allow: true
+    securityGroups:
+      attachIDs:
+        - sg-077c72864270f6ad3
+  - name: clients
+    instanceType: c5.xlarge
+    spot: true
+    desiredCapacity: 1
     ssh:
       allow: true
     securityGroups:
