@@ -36,6 +36,8 @@ for region in ${REGIONS[@]}; do
   start-cockroach $region
 done
 
+read -p "Press ENTER to init the cluster."
+
 context=ctring@cockroachdb.$REGIONS.eksctl.io
 kubectl delete -f cockroach/init.yaml --context $context --ignore-not-found
 kubectl create -f cockroach/init.yaml --context $context

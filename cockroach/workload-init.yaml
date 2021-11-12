@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: workload-init
-    image: ctring/cockroach:preload
+    image: ctring/cockroach
     imagePullPolicy: IfNotPresent
     command:
       - "/cockroach/cockroach"
@@ -16,7 +16,7 @@ spec:
       - "init"
       - "kv"
       - "--drop"
-      - "--insert-count=10000000"
+      - "--insert-count=100000000"
       - "--min-block-bytes=100"
       - "--max-block-bytes=100"
       - "--regions=$REGIONS"

@@ -17,5 +17,5 @@ spec:
           - "--insecure"
           - "--host=cockroachdb.us-east-1"
           - "--execute=SET CLUSTER SETTING cluster.organization = 'UMD'"
-          - "--execute=SET CLUSTER SETTING enterprise.license = 'crl-0-ELr/sIwGGAIiA1VNRA'"
+          - "--execute=SET CLUSTER SETTING enterprise.license = 'crl-0-EJvm0I0GGAIiA1VNRA'"
       restartPolicy: "Never"
