@@ -4,7 +4,7 @@ us-east-1: |
     errors
     ready
     cache 10
-    forward . 34.227.240.89 3.223.73.164 50.16.182.10 {
+    forward . 54.237.24.29 18.235.92.161 18.210.153.141 {
         force_tcp
     }
   }
@@ -14,7 +14,7 @@ us-east-2: |
     errors
     ready
     cache 10
-    forward . 3.134.70.122 18.220.86.91 3.132.156.79 {
+    forward . 3.141.157.19 3.135.105.226 18.190.57.226 {
         force_tcp
     }
   }
@@ -44,7 +44,7 @@ eu-west-1: |
     errors
     ready
     cache 10
-    forward . 54.155.204.112 46.137.44.252 54.77.16.182 {
+    forward . 54.216.170.234 34.251.219.74 52.18.87.57 {
         force_tcp
     }
   }
@@ -54,47 +54,47 @@ eu-west-2: |
     errors
     ready
     cache 10
-    forward . 18.169.195.228 3.11.71.152 35.177.173.190 {
+    forward . 18.169.82.17 18.133.208.31 35.176.246.2 {
         force_tcp
     }
   }
-ap-northeast-1: |
-  ap-northeast-1.svc.cluster.local:53 {
-    log
-    errors
-    ready
-    cache 10
-    forward . 35.73.250.79 54.178.71.245 3.114.1.160 {
-        force_tcp
-    }
-  }
-ap-northeast-2: |
-  ap-northeast-2.svc.cluster.local:53 {
-    log
-    errors
-    ready
-    cache 10
-    forward . 54.180.68.107 3.38.123.35 3.35.215.104 {
-        force_tcp
-    }
-  }
-ap-southeast-1: |
-  ap-southeast-1.svc.cluster.local:53 {
-    log
-    errors
-    ready
-    cache 10
-    forward . 3.0.236.59 18.138.6.248 52.221.98.37 {
-        force_tcp
-    }
-  }
-ap-southeast-2: |
-  ap-southeast-2.svc.cluster.local:53 {
-    log
-    errors
-    ready
-    cache 10
-    forward . 54.79.215.215 54.66.205.249 3.105.9.127 {
-        force_tcp
-    }
-  }
+# ap-northeast-1: |
+#   ap-northeast-1.svc.cluster.local:53 {
+#     log
+#     errors
+#     ready
+#     cache 10
+#     forward . 35.73.250.79 54.178.71.245 3.114.1.160 {
+#         force_tcp
+#     }
+#   }
+# ap-northeast-2: |
+#   ap-northeast-2.svc.cluster.local:53 {
+#     log
+#     errors
+#     ready
+#     cache 10
+#     forward . 54.180.68.107 3.38.123.35 3.35.215.104 {
+#         force_tcp
+#     }
+#   }
+# ap-southeast-1: |
+#   ap-southeast-1.svc.cluster.local:53 {
+#     log
+#     errors
+#     ready
+#     cache 10
+#     forward . 3.0.236.59 18.138.6.248 52.221.98.37 {
+#         force_tcp
+#     }
+#   }
+# ap-southeast-2: |
+#   ap-southeast-2.svc.cluster.local:53 {
+#     log
+#     errors
+#     ready
+#     cache 10
+#     forward . 54.79.215.215 54.66.205.249 3.105.9.127 {
+#         force_tcp
+#     }
+#   }

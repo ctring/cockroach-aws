@@ -19,8 +19,6 @@ managedNodeGroups:
     instanceType: c5.4xlarge
     spot: true
     desiredCapacity: 3
-    ssh:
-      allow: true
     securityGroups:
       attachIDs:
         - sg-00d71ca4d6219ecc8
@@ -28,8 +26,6 @@ managedNodeGroups:
     instanceType: c5.xlarge
     spot: true
     desiredCapacity: 1
-    ssh:
-      allow: true
     securityGroups:
       attachIDs:
         - sg-00d71ca4d6219ecc8
