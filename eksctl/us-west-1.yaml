@@ -13,13 +13,13 @@ vpc:
       us-west-1b: { id: subnet-08f4dcbd56e6814c1 }
 
 managedNodeGroups:
-  # - name: servers
-  #   instanceType: c5.4xlarge
-  #   spot: true
-  #   desiredCapacity: 3
-  #   securityGroups:
-  #     attachIDs:
-  #       - sg-046193268c5f5e771
+  - name: servers
+    instanceType: c5.4xlarge
+    spot: true
+    desiredCapacity: 3
+    securityGroups:
+      attachIDs:
+        - sg-046193268c5f5e771
   - name: clients
     instanceType: c5.xlarge
     spot: true
