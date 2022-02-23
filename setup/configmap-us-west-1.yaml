@@ -16,21 +16,21 @@ data:
         reload
         loadbalance
     }
+    us-east-1.svc.cluster.local:53 {
+      log
+      errors
+      ready
+      cache 10
+      forward . 3.87.149.81 54.167.149.245 52.6.245.109 {
+          force_tcp
+      }
+    }
     us-east-2.svc.cluster.local:53 {
       log
       errors
       ready
       cache 10
       forward . 3.19.226.116 18.189.140.142 3.134.14.239 {
-          force_tcp
-      }
-    }
-    us-west-1.svc.cluster.local:53 {
-      log
-      errors
-      ready
-      cache 10
-      forward . 184.169.235.175 50.18.119.118 {
           force_tcp
       }
     }

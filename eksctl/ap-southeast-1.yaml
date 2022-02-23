@@ -16,14 +16,14 @@ vpc:
 managedNodeGroups:
   - name: servers
     instanceType: c5.4xlarge
-    spot: true
+    spot: false
     desiredCapacity: 3
     securityGroups:
       attachIDs:
         - sg-06b2eeb8fdf0f4953
   - name: clients
     instanceType: c5.xlarge
-    spot: true
+    spot: false
     desiredCapacity: 1
     securityGroups:
       attachIDs:

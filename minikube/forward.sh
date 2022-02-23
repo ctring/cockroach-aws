@@ -1,1 +1,1 @@
-kubectl port-forward -n region-0 service/cockroachdb 26257 8080
+kubectl port-forward -n region-2 service/cockroachdb 26257 8080

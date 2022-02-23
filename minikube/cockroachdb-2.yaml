@@ -129,9 +129,9 @@ spec:
           initialDelaySeconds: 10
           periodSeconds: 5
           failureThreshold: 2
-        # volumeMounts:
-        # - name: datadir
-        #   mountPath: /cockroach/cockroach-data
+        volumeMounts:
+        - name: datadir
+          mountPath: /cockroach/cockroach-data
         env:
         - name: COCKROACH_CHANNEL
           value: kubernetes-insecure
@@ -161,23 +161,22 @@ spec:
             --locality region=region-2
             --cache $(expr $MEMORY_LIMIT_MIB / 4)MiB
             --max-sql-memory $(expr $MEMORY_LIMIT_MIB / 4)MiB
-            --store type=mem,size=700MiB
       # No pre-stop hook is required, a SIGTERM plus some time is all that's
       # needed for graceful shutdown of a node.
       terminationGracePeriodSeconds: 60
-      # volumes:
-      # - name: datadir
-      #   persistentVolumeClaim:
-      #     claimName: datadir
+      volumes:
+      - name: datadir
+        persistentVolumeClaim:
+          claimName: datadir
   podManagementPolicy: Parallel
   updateStrategy:
     type: RollingUpdate
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: datadir
-  #   spec:
-  #     accessModes:
-  #       - "ReadWriteOnce"
-  #     resources:
-  #       requests:
-  #         storage: 1Gi
+  volumeClaimTemplates:
+  - metadata:
+      name: datadir
+    spec:
+      accessModes:
+        - "ReadWriteOnce"
+      resources:
+        requests:
+          storage: 1Gi

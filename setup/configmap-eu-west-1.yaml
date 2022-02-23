@@ -1,6 +1,6 @@
 apiVersion: v1
 data:
-  Corefile: |-
+  Corefile: |
     .:53 {
         errors
         ready
@@ -21,7 +21,7 @@ data:
       errors
       ready
       cache 10
-      forward . 34.227.240.89 3.223.73.164 50.16.182.10 {
+      forward . 3.87.149.81 54.167.149.245 52.6.245.109 {
           force_tcp
       }
     }
@@ -30,7 +30,25 @@ data:
       errors
       ready
       cache 10
-      forward . 3.134.70.122 18.220.86.91 3.132.156.79 {
+      forward . 3.19.226.116 18.189.140.142 3.134.14.239 {
+          force_tcp
+      }
+    }
+    us-west-1.svc.cluster.local:53 {
+      log
+      errors
+      ready
+      cache 10
+      forward . 184.169.235.175 50.18.119.118 {
+          force_tcp
+      }
+    }
+    us-west-2.svc.cluster.local:53 {
+      log
+      errors
+      ready
+      cache 10
+      forward . 52.89.27.178 52.25.248.207 52.11.174.232 54.185.126.99 {
           force_tcp
       }
     }
@@ -39,43 +57,7 @@ data:
       errors
       ready
       cache 10
-      forward . 18.169.195.228 3.11.71.152 35.177.173.190 {
-          force_tcp
-      }
-    }
-    ap-northeast-1.svc.cluster.local:53 {
-      log
-      errors
-      ready
-      cache 10
-      forward . 35.73.250.79 54.178.71.245 3.114.1.160 {
-          force_tcp
-      }
-    }
-    ap-northeast-2.svc.cluster.local:53 {
-      log
-      errors
-      ready
-      cache 10
-      forward . 54.180.68.107 3.38.123.35 3.35.215.104 {
-          force_tcp
-      }
-    }
-    ap-southeast-1.svc.cluster.local:53 {
-      log
-      errors
-      ready
-      cache 10
-      forward . 3.0.236.59 18.138.6.248 52.221.98.37 {
-          force_tcp
-      }
-    }
-    ap-southeast-2.svc.cluster.local:53 {
-      log
-      errors
-      ready
-      cache 10
-      forward . 54.79.215.215 54.66.205.249 3.105.9.127 {
+      forward . 35.178.0.90 18.170.168.150 18.170.168.69 {
           force_tcp
       }
     }
